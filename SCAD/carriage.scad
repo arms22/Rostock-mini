@@ -29,7 +29,7 @@ module parallel_joints(reinforced) {
       translate([x, -4.5, 0])
         cube([cutout, 20, 100], center=true);
       translate([x, 0, 0]) rotate([0, 90, 0]) rotate([0, 0, 30])
-        cylinder(r=3.3, h=17, center=true, $fn=6);
+        cylinder(r=3.4, h=18, center=true, $fn=6);
     }
     translate([0, 2, 0]) cylinder(r=middle, h=100, center=true);
     translate([0, -8, 0]) cube([2*middle, 20, 100], center=true);
@@ -52,14 +52,26 @@ module belt_mount() {
   difference() {
     union() {
       difference() {
-        translate([8, 2, 0]) cube([4, 13, height], center=true);
+        translate([8, 2, 0]) cube([4, 14, height], center=true);
         for (z = [-3.5, 3.5])
           translate([8, 5, z])
-            cube([5, 13, 3], center=true);
+            cube([5, 14, 3], center=true);
       }
+
+      // ribu1
+      translate([6, -4, 0])
+        rotate([0, 0, 45])
+          cube([4, 4, height], center=true);
+
+      // ribu2
+      translate([12, -4, 0])
+        rotate([0, 0, 45])
+          cube([4, 10, 4], center=true);
+/*
       for (y = [1.5, 5, 8.5]) {
         translate([8, y, 0]) cube([4, 1.2, height], center=true);
       }
+//*/
     }
   }
 }
@@ -68,7 +80,7 @@ module carriage() {
   translate([0, 0, height/2]) 
   union() {
     for (x = [-30, 30]) {
-      translate([x, 0, 0]) lm8uu_mount(d=15, h=24);
+      translate([x, 0, 0]) lm8uu_mount(d=15.5, h=24);
     }
     belt_mount();
     difference() {
