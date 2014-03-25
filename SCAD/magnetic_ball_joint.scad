@@ -2,7 +2,7 @@ ball_d = 9;
 outer_d = 8;
 inner_d = 5;
 height = 25;
-offset = 2.7;
+offset = 2.6;
 $fn = 64;
 
 module joint() {
