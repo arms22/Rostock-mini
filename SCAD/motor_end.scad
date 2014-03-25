@@ -36,7 +36,8 @@ module motor_end() {
       cylinder(r=1.7, h=40, center=true, $fn=24);
     for (i = [-1, 1]) for (z = [-14, 0, 14])
       translate([i, -1, z]) screws();
-
+	// Set screw hole
+	translate([0, 7.5, 20]) cylinder(r=1.2, h=20, center=true, $fn=12);
   }
 }
 
